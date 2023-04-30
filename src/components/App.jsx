@@ -2,9 +2,11 @@ import { useEffect } from 'react';
 import { getUsers } from 'components/Api/apiUsers';
 import { useState } from 'react';
 import { TweetCardList } from './TweetCardList/TweetCardList';
+import { LoadMoreBtn } from './LoadMoreBtn/LoadMoreBtn';
 
 export const App = () => {
   const [state, setState] = useState([]);
+  const [loadTweets, setLoadTweets] = useState(3);
   //  {
   //   const saveFollowers = localStorage.getItem('follow');
 
@@ -17,7 +19,7 @@ export const App = () => {
   useEffect(() => {
     async function getUser() {
       try {
-        const users = await getUsers();
+        const users = await getUsers(loadTweets);
         if (users.length > 0) {
           setState(users);
         }
@@ -27,7 +29,7 @@ export const App = () => {
     }
     getUser();
     // window.localStorage.setItem('follow', JSON.stringify(follow));
-  }, [state]);
+  }, [loadTweets]);
 
   const addFollowers = evt => {
     const id = evt.target.id;
@@ -35,9 +37,14 @@ export const App = () => {
     console.log(id);
   };
 
+  const loadMore = () => {
+    setLoadTweets(prevState => prevState + 3);
+  };
+
   return (
     <>
       <TweetCardList users={state} addFollowers={addFollowers} />
+      <LoadMoreBtn loadMore={loadMore} />
     </>
   );
 };
