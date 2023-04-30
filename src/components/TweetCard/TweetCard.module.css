@@ -1,16 +1,4 @@
-.cardWrapper {
-  background: #8a2be2;
-  width: 100%;
-  height: 1180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .card {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   width: 380px;
   height: 460px;
   background: linear-gradient(
@@ -22,52 +10,46 @@
   box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
   border-radius: 20px;
 }
+.card:not(:last-child) {
+  margin-bottom: 30px;
+}
 .imageLogo {
-  position: absolute;
   padding: 20px;
 }
 .backgroundImg {
+  position: relative;
   background-image: url(../../images/askDone.png);
   width: 308px;
   height: 168px;
-  margin-top: 28px;
-  margin-left: 36px;
-  position: absolute;
+  left: 36px;
+  bottom: 28px;
 }
-.avatar {
-  background-image: url(../../images/Avatar.png);
-}
-.followControl {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  bottom: 36px;
-}
+
 .tweets {
-  position: relative;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
-  width: 132px;
-  height: 24px;
   color: #ebd8ff;
   text-transform: uppercase;
-  left: 90px;
+  margin: 0 140px;
+  padding-top: 26px;
 }
 .followers {
-  position: relative;
   width: 214px;
   height: 24px;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
   color: #ebd8ff;
+  margin: 0 90px;
   text-transform: uppercase;
-  left: 48px;
+  padding-top: 16px;
 }
 .followersText {
   margin-left: 20px;
+}
+.btnWrapper {
+  margin-top: 26px;
 }

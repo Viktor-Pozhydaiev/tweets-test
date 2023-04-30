@@ -1,4 +1,4 @@
-import css from "./FollowButton.module.css";
+import css from './FollowButton.module.css';
 
 export const FollowButton = ({ addFollowers }) => {
   return (
