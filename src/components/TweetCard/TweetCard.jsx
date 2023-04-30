@@ -16,7 +16,7 @@ export const TweetCard = ({
       <a href="https://goit.global/ua/">
         <img className={css.imageLogo} src={Logo} alt="Logo" />
       </a>
-      <li id={id}>
+      <div>
         <div className={css.backgroundImg}></div>
         <User avatar={avatar} />
         <div className={css.followControl}>
@@ -29,10 +29,10 @@ export const TweetCard = ({
           </div>
 
           <div className={css.btnWrapper}>
-            <FollowButton addFollowers={addFollowers} />
+            <FollowButton id={id} addFollowers={addFollowers} />
           </div>
         </div>
-      </li>
+      </div>
     </div>
   );
 };

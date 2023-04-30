@@ -3,10 +3,13 @@ import { getUsers } from 'components/Api/apiUsers';
 import { useState } from 'react';
 import { TweetCardList } from './TweetCardList/TweetCardList';
 import { LoadMoreBtn } from './LoadMoreBtn/LoadMoreBtn';
+import { toast, Toaster } from 'react-hot-toast';
+import { Loader } from './Loader/Loader';
 
 export const App = () => {
-  const [state, setState] = useState([]);
+  const [users, setUsers] = useState([]);
   const [loadTweets, setLoadTweets] = useState(3);
+  const [isLoading, setIsLoading] = useState(false);
   //  {
   //   const saveFollowers = localStorage.getItem('follow');
 
@@ -19,12 +22,16 @@ export const App = () => {
   useEffect(() => {
     async function getUser() {
       try {
+        setIsLoading(true);
         const users = await getUsers(loadTweets);
         if (users.length > 0) {
-          setState(users);
+          setUsers(users);
+
+          setIsLoading(false);
         }
       } catch (error) {
-        console.log(error.message);
+        setIsLoading(false);
+        toast.error(error.message);
       }
     }
     getUser();
@@ -32,19 +39,27 @@ export const App = () => {
   }, [loadTweets]);
 
   const addFollowers = evt => {
-    const id = evt.target.id;
-    console.log(state);
+    const id = evt.currentTarget;
     console.log(id);
   };
 
   const loadMore = () => {
     setLoadTweets(prevState => prevState + 3);
+    if (users.length >= loadTweets) {
+      toast.success(`Your loaded ${users.length} users more`);
+    } else {
+      toast.error('Sorry you have not more users');
+    }
   };
-
   return (
     <>
-      <TweetCardList users={state} addFollowers={addFollowers} />
-      <LoadMoreBtn loadMore={loadMore} />
+      <TweetCardList users={users} addFollowers={addFollowers} />
+      {users.length > 0 && !isLoading ? (
+        <LoadMoreBtn loadMore={loadMore} />
+      ) : (
+        <Loader />
+      )}
+      <Toaster position="top-right" />
     </>
   );
 };
