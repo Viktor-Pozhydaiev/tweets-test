@@ -1,7 +1,6 @@
 import css from './TweetCard.module.css';
 import Logo from '../../images/Vector.svg';
 import { FollowButton } from '../FollowButton/FollowButton';
-import { FollowingBtn } from '../FollowingBtn/FollowingBtn';
 import { User } from 'components/User/User';
 
 export const TweetCard = ({
@@ -31,8 +30,6 @@ export const TweetCard = ({
 
           <div className={css.btnWrapper}>
             <FollowButton addFollowers={addFollowers} />
-
-            {/* <FollowingBtn addFollowers={addFollowers} /> */}
           </div>
         </div>
       </li>
