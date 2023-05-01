@@ -3,6 +3,8 @@ import Logo from '../../images/Vector.svg';
 import { FollowButton } from '../FollowButton/FollowButton';
 import { User } from 'components/User/User';
 import { FollowingBtn } from 'components/FollowingBtn/FollowingBtn';
+import { PropTypes } from 'prop-types';
+import { toast } from 'react-hot-toast';
 
 export const TweetCard = ({
   id,
@@ -15,8 +17,10 @@ export const TweetCard = ({
   const toggleFollow = id => {
     if (!isFollow) {
       toggleFollowers(id, true, 'plus');
+      toast.success('You are following !');
     } else {
       toggleFollowers(id, false, 'minus');
+      toast.error('You are unsubscribed !');
     }
   };
 
@@ -48,4 +52,12 @@ export const TweetCard = ({
       </div>
     </div>
   );
+};
+TweetCard.propTypes = {
+  toggleFollowers: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  tweets: PropTypes.number.isRequired,
+  followers: PropTypes.number.isRequired,
+  avatar: PropTypes.string.isRequired,
+  isFollow: PropTypes.bool.isRequired,
 };

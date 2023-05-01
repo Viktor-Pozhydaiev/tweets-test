@@ -1,4 +1,5 @@
 import css from './FollowButton.module.css';
+import { PropTypes } from 'prop-types';
 
 export const FollowButton = ({ addFollowers }) => {
   return (
@@ -11,4 +12,8 @@ export const FollowButton = ({ addFollowers }) => {
       Follow
     </button>
   );
+};
+
+FollowButton.propTypes = {
+  addFollowers: PropTypes.func.isRequired,
 };

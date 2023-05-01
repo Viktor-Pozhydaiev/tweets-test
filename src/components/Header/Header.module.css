@@ -1,0 +1,22 @@
+.navWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  height: 50px;
+  background-color: rgb(56, 6, 136);
+  padding: 20px;
+  margin-bottom: 50px;
+}
+.navStyle {
+  color: rgb(151, 4, 126) !important;
+  margin-left: 35px;
+}
+.navStyle:not(:last-child) {
+  margin-right: 15px;
+}
+.navText {
+  margin: 10px;
+  font-size: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+}

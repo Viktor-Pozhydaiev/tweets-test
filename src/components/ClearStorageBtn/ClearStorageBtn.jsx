@@ -1,4 +1,5 @@
 import css from './ClearStorageBtn.module.css';
+import { PropTypes } from 'prop-types';
 
 export const ClearStorageBtn = ({ clear }) => {
   return (
@@ -8,4 +9,8 @@ export const ClearStorageBtn = ({ clear }) => {
       </button>
     </div>
   );
+};
+
+ClearStorageBtn.propTypes = {
+  clear: PropTypes.func.isRequired,
 };
