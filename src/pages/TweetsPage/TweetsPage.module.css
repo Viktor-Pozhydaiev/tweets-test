@@ -1,0 +1,15 @@
+.tweetsPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.backLink {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 30px;
+  color: #a52a2a;
+  text-transform: uppercase;
+  text-align: center;
+  padding-bottom: 50px;
+}

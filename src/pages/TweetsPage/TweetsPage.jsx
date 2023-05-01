@@ -5,6 +5,8 @@ import { Loader } from 'components/Loader/Loader';
 import { TweetCardList } from 'components/TweetCardList/TweetCardList';
 import { useState, useEffect } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import css from '../TweetsPage/TweetsPage.module.css';
 
 const TweetsPage = () => {
   const [users, setUsers] = useState(
@@ -13,6 +15,9 @@ const TweetsPage = () => {
   const [page, setPage] = useState(
     JSON.parse(localStorage.getItem('page')) || 1
   );
+
+  const location = useLocation();
+  const backLink = location.state?.from ?? '/';
   const [isLoading, setIsLoading] = useState(false);
 
   const updateUser = data => {
@@ -94,7 +99,10 @@ const TweetsPage = () => {
   };
 
   return (
-    <>
+    <div className={css.tweetsPage}>
+      <Link className={css.backLink} to={backLink}>
+        Go Back
+      </Link>
       <TweetCardList toggleFollowers={toggleFollowers} users={users} />
 
       <Toaster position="top-right" />
@@ -105,7 +113,8 @@ const TweetsPage = () => {
         <ClearStorageBtn clear={cleanStorage} />
       )}
       {isLoading && <Loader />}
-    </>
+      <Outlet />
+    </div>
   );
 };
 export default TweetsPage;
