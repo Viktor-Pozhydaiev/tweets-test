@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/tweets-test/static/css/main.c54815b5.css",
-    "main.js": "/tweets-test/static/js/main.1b2ee386.js",
+    "main.js": "/tweets-test/static/js/main.2f40ba5b.js",
     "static/css/541.c70745d7.chunk.css": "/tweets-test/static/css/541.c70745d7.chunk.css",
     "static/js/541.07192b97.chunk.js": "/tweets-test/static/js/541.07192b97.chunk.js",
     "static/css/211.57cd5f27.chunk.css": "/tweets-test/static/css/211.57cd5f27.chunk.css",
-    "static/js/211.8b80fb2a.chunk.js": "/tweets-test/static/js/211.8b80fb2a.chunk.js",
+    "static/js/211.30dd647c.chunk.js": "/tweets-test/static/js/211.30dd647c.chunk.js",
     "static/css/9.946a93fc.chunk.css": "/tweets-test/static/css/9.946a93fc.chunk.css",
     "static/js/9.b3f93687.chunk.js": "/tweets-test/static/js/9.b3f93687.chunk.js",
     "static/js/923.4e521376.chunk.js": "/tweets-test/static/js/923.4e521376.chunk.js",
@@ -13,17 +13,17 @@
     "static/media/askDone.png": "/tweets-test/static/media/askDone.86562350dcaa714a1442.png",
     "index.html": "/tweets-test/index.html",
     "main.c54815b5.css.map": "/tweets-test/static/css/main.c54815b5.css.map",
-    "main.1b2ee386.js.map": "/tweets-test/static/js/main.1b2ee386.js.map",
+    "main.2f40ba5b.js.map": "/tweets-test/static/js/main.2f40ba5b.js.map",
     "541.c70745d7.chunk.css.map": "/tweets-test/static/css/541.c70745d7.chunk.css.map",
     "541.07192b97.chunk.js.map": "/tweets-test/static/js/541.07192b97.chunk.js.map",
     "211.57cd5f27.chunk.css.map": "/tweets-test/static/css/211.57cd5f27.chunk.css.map",
-    "211.8b80fb2a.chunk.js.map": "/tweets-test/static/js/211.8b80fb2a.chunk.js.map",
+    "211.30dd647c.chunk.js.map": "/tweets-test/static/js/211.30dd647c.chunk.js.map",
     "9.946a93fc.chunk.css.map": "/tweets-test/static/css/9.946a93fc.chunk.css.map",
     "9.b3f93687.chunk.js.map": "/tweets-test/static/js/9.b3f93687.chunk.js.map",
     "923.4e521376.chunk.js.map": "/tweets-test/static/js/923.4e521376.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c54815b5.css",
-    "static/js/main.1b2ee386.js"
+    "static/js/main.2f40ba5b.js"
   ]
 }
