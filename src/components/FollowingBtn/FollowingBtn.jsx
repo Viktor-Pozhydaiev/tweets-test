@@ -1,16 +1,15 @@
-import css from "./FollowingBtn.module.css";
+import css from './FollowingBtn.module.css';
 
-export const FollowingBtn = ({ addFollowers }) => {
+export const FollowingBtn = ({ userId, removeFollowers }) => {
   return (
-    <div>
-      <button
-        id="following"
-        onClick={addFollowers}
-        className={css.followingBtn}
-        type="button"
-      >
-        Following
-      </button>
-    </div>
+    <button
+      id={userId}
+      onClick={removeFollowers}
+      className={css.followingBtn}
+      type="button"
+      name="followingBtn"
+    >
+      Following
+    </button>
   );
 };
