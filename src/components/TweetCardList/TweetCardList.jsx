@@ -5,13 +5,15 @@ import { getUsers } from 'components/Api/apiUsers';
 import { LoadMoreBtn } from '../LoadMoreBtn/LoadMoreBtn';
 import { toast } from 'react-hot-toast';
 import { Loader } from '../Loader/Loader';
+import { nanoid } from 'nanoid';
+import { ClearStorageBtn } from 'components/ClearStorageBtn/ClearStorageBtn';
 
 export const TweetCardList = () => {
   const [users, setUsers] = useState(
     JSON.parse(localStorage.getItem('users')) || []
   );
-  const [loadTweets, setLoadTweets] = useState(
-    JSON.parse(localStorage.getItem('loadTweets')) || 3
+  const [page, setPage] = useState(
+    JSON.parse(localStorage.getItem('page')) || 1
   );
   const [isLoading, setIsLoading] = useState(false);
 
@@ -26,22 +28,18 @@ export const TweetCardList = () => {
     async function getUser() {
       try {
         setIsLoading(true);
-        const data = await getUsers(3);
-        const updateUsers = updateUser(data);
+        const data = await getUsers(1);
+        const updatedUsers = updateUser(data);
         const userLocalStorage = JSON.parse(localStorage.getItem('users'));
 
         if (userLocalStorage) {
           setUsers(userLocalStorage);
         } else {
-          setUsers(updateUsers);
-          localStorage.setItem('users', JSON.stringify(updateUsers));
+          setUsers(updatedUsers);
+          localStorage.setItem('users', JSON.stringify(updatedUsers));
         }
 
-        // if (users.length > 0) {
-        //   setUsers(users);
-
         setIsLoading(false);
-        // }
       } catch (error) {
         setIsLoading(false);
         toast.error(error.message);
@@ -51,7 +49,7 @@ export const TweetCardList = () => {
   }, []);
 
   const toggleFollowers = (id, value, count) => {
-    const updateStatus = users.map(user => {
+    const updatedStatus = users.map(user => {
       if (user.id === id) {
         return {
           ...user,
@@ -62,34 +60,47 @@ export const TweetCardList = () => {
         return user;
       }
     });
-    localStorage.setItem('users', JSON.stringify(updateStatus));
-    setUsers(updateStatus);
+    localStorage.setItem('users', JSON.stringify(updatedStatus));
+    setUsers(updatedStatus);
   };
 
   const loadMore = async () => {
     try {
       setIsLoading(true);
-      const data = await getUsers(loadTweets + 3);
-      const updateUsers = updateUser(data);
+      const data = await getUsers(page + 1);
+      const updatedUsers = updateUser(data);
 
-      setUsers(prevState => [...prevState, ...updateUsers]);
-      localStorage.setItem('users', JSON.stringify([...users, ...updateUsers]));
+      setUsers(prevState => [...prevState, ...updatedUsers]);
+      localStorage.setItem(
+        'users',
+        JSON.stringify([...users, ...updatedUsers])
+      );
 
-      setLoadTweets(prevState => prevState + 3);
-      localStorage.setItem('loadTweets', JSON.stringify(loadTweets + 3));
+      setPage(prevState => prevState + 1);
+      localStorage.setItem('page', JSON.stringify(page + 1));
+      if (updatedUsers.length === 0) {
+        toast.error('Sorry we have not more users');
+      } else {
+        toast.success('Congratulation you added more users');
+      }
     } catch (error) {
       toast.error(error.message);
     } finally {
-      isLoading(false);
+      setIsLoading(false);
     }
   };
+
+  const cleanStorage = () => {
+    localStorage.clear();
+  };
+
   return (
     <>
       <div className={css.cardListWrapper}>
         <ul>
           {users.map(({ id, tweets, user, followers, avatar, isFollow }) => {
             return (
-              <li className={css.cardListItem} key={id}>
+              <li className={css.cardListItem} key={nanoid()}>
                 <TweetCard
                   id={id}
                   isFollow={isFollow}
@@ -109,7 +120,9 @@ export const TweetCardList = () => {
       ) : (
         <Loader />
       )}
-      {/* <LoadMoreBtn loadMore={loadMore} /> */}
+      {users.length >= 12 && !isLoading && (
+        <ClearStorageBtn clear={cleanStorage} />
+      )}
     </>
   );
 };

@@ -2,8 +2,6 @@ import css from './TweetCard.module.css';
 import Logo from '../../images/Vector.svg';
 import { FollowButton } from '../FollowButton/FollowButton';
 import { User } from 'components/User/User';
-import { toast } from 'react-hot-toast';
-import { useState } from 'react';
 import { FollowingBtn } from 'components/FollowingBtn/FollowingBtn';
 
 export const TweetCard = ({
@@ -40,10 +38,10 @@ export const TweetCard = ({
           </div>
 
           <div className={css.btnWrapper}>
-            {isFollow === true ? (
-              <FollowingBtn userId={id} removeFollowers={toggleFollow} />
+            {isFollow === false ? (
+              <FollowButton addFollowers={() => toggleFollow(id)} />
             ) : (
-              <FollowButton userId={id} addFollowers={toggleFollow} />
+              <FollowingBtn removeFollowers={() => toggleFollow(id)} />
             )}
           </div>
         </div>

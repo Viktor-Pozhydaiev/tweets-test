@@ -1,11 +1,10 @@
 import css from './FollowButton.module.css';
 
-export const FollowButton = ({ userId, addFollowers }) => {
+export const FollowButton = ({ addFollowers }) => {
   return (
     <button
-      id={userId}
       className={css.followBtn}
-      onClick={() => addFollowers(userId)}
+      onClick={addFollowers}
       type="button"
       name="followBtn"
     >
