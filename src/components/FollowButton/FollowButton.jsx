@@ -5,7 +5,7 @@ export const FollowButton = ({ userId, addFollowers }) => {
     <button
       id={userId}
       className={css.followBtn}
-      onClick={addFollowers}
+      onClick={() => addFollowers(userId)}
       type="button"
       name="followBtn"
     >

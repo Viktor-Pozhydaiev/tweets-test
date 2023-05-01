@@ -6,20 +6,19 @@ import { toast } from 'react-hot-toast';
 import { useState } from 'react';
 import { FollowingBtn } from 'components/FollowingBtn/FollowingBtn';
 
-export const TweetCard = ({ id, tweets, followers, avatar }) => {
-  const [addFollowing, setAddFollowing] = useState(followers);
-
-  const toggleFollowers = evt => {
-    const btnName = evt.target.name;
-    const currentId = evt.target.id;
-    if (id === currentId && btnName === 'followBtn') {
-      setAddFollowing(prevState => prevState + 1);
-      toast.success('Congratulation your following is successful =)');
-    } else if (id === currentId && btnName === 'followingBtn') {
-      setAddFollowing(followers);
-      toast.success('Congratulation your unsubscribe was successful =)');
+export const TweetCard = ({
+  id,
+  tweets,
+  followers,
+  avatar,
+  toggleFollowers,
+  isFollow,
+}) => {
+  const toggleFollow = id => {
+    if (!isFollow) {
+      toggleFollowers(id, true, 'plus');
     } else {
-      toast.error('Button name oder userID is wrong.');
+      toggleFollowers(id, false, 'minus');
     }
   };
 
@@ -35,16 +34,16 @@ export const TweetCard = ({ id, tweets, followers, avatar }) => {
           <div className={css.textWrap}>
             <p className={css.tweets}>777 {tweets}</p>
             <p className={css.followers}>
-              {addFollowing.toLocaleString('en-US')}
+              {followers.toLocaleString('en-US')}
               <span className={css.followersText}>followers</span>
             </p>
           </div>
 
           <div className={css.btnWrapper}>
-            {addFollowing !== followers ? (
-              <FollowingBtn userId={id} removeFollowers={toggleFollowers} />
+            {isFollow === true ? (
+              <FollowingBtn userId={id} removeFollowers={toggleFollow} />
             ) : (
-              <FollowButton userId={id} addFollowers={toggleFollowers} />
+              <FollowButton userId={id} addFollowers={toggleFollow} />
             )}
           </div>
         </div>
