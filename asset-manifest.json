@@ -1,15 +1,29 @@
 {
   "files": {
-    "main.css": "/tweets-test/static/css/main.37404e94.css",
-    "main.js": "/tweets-test/static/js/main.2f411a5f.js",
+    "main.css": "/tweets-test/static/css/main.c54815b5.css",
+    "main.js": "/tweets-test/static/js/main.89bd00e1.js",
+    "static/css/541.c70745d7.chunk.css": "/tweets-test/static/css/541.c70745d7.chunk.css",
+    "static/js/541.07192b97.chunk.js": "/tweets-test/static/js/541.07192b97.chunk.js",
+    "static/css/136.234392f1.chunk.css": "/tweets-test/static/css/136.234392f1.chunk.css",
+    "static/js/136.6f002afb.chunk.js": "/tweets-test/static/js/136.6f002afb.chunk.js",
+    "static/css/9.d69bb479.chunk.css": "/tweets-test/static/css/9.d69bb479.chunk.css",
+    "static/js/9.b3f93687.chunk.js": "/tweets-test/static/js/9.b3f93687.chunk.js",
+    "static/js/923.4e521376.chunk.js": "/tweets-test/static/js/923.4e521376.chunk.js",
     "static/media/Vector.svg": "/tweets-test/static/media/Vector.cf8ce59140352968d546f9c171b1b3f5.svg",
     "static/media/askDone.png": "/tweets-test/static/media/askDone.86562350dcaa714a1442.png",
     "index.html": "/tweets-test/index.html",
-    "main.37404e94.css.map": "/tweets-test/static/css/main.37404e94.css.map",
-    "main.2f411a5f.js.map": "/tweets-test/static/js/main.2f411a5f.js.map"
+    "main.c54815b5.css.map": "/tweets-test/static/css/main.c54815b5.css.map",
+    "main.89bd00e1.js.map": "/tweets-test/static/js/main.89bd00e1.js.map",
+    "541.c70745d7.chunk.css.map": "/tweets-test/static/css/541.c70745d7.chunk.css.map",
+    "541.07192b97.chunk.js.map": "/tweets-test/static/js/541.07192b97.chunk.js.map",
+    "136.234392f1.chunk.css.map": "/tweets-test/static/css/136.234392f1.chunk.css.map",
+    "136.6f002afb.chunk.js.map": "/tweets-test/static/js/136.6f002afb.chunk.js.map",
+    "9.d69bb479.chunk.css.map": "/tweets-test/static/css/9.d69bb479.chunk.css.map",
+    "9.b3f93687.chunk.js.map": "/tweets-test/static/js/9.b3f93687.chunk.js.map",
+    "923.4e521376.chunk.js.map": "/tweets-test/static/js/923.4e521376.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.37404e94.css",
-    "static/js/main.2f411a5f.js"
+    "static/css/main.c54815b5.css",
+    "static/js/main.89bd00e1.js"
   ]
 }
